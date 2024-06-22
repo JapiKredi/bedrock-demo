@@ -6,11 +6,11 @@ import boto3
 
 #bedrock client
 bedrock_client = boto3.client(
-    service_name = "bedrock-runtime",
+    service_name = "bedrock-test",
     region_name = "us-east-1"
 )
 
-model_id = "i21.j2-mid-v1"
+model_id = "ai21.j2-ultra-v1""
 
 llm = Bedrock(
     model_id = model_id,
