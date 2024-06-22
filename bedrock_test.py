@@ -1,23 +1,26 @@
-#from langchain.llms.bedrock import Bedrock
-#from langchain_community.llms import Bedrock
-from langchain_aws import BedrockLLM as Bedrock
+from langchain.llms.bedrock import Bedrock
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 import boto3
+import streamlit as st
 
 
-#bedrock client
+#Bedrock client
+
 bedrock_client = boto3.client(
-    service_name = "bedrock",
-    region_name = "us-east-1"
+    service_name = "bedrock-runtime",
+    region_name = "us-east-1",
 )
 
-model_id = "ai21.j2-ultra-v1"
+model_id = "ai21.j2-mid-v1"
+
 
 llm = Bedrock(
-    model_id = model_id,
-    client = bedrock_client
+    model_id= model_id,
+    client= bedrock_client,
+    model_kwargs={"temperature": 0.9}
 )
+
 
 
 def my_model(user_prompt):
