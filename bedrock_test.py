@@ -1,4 +1,6 @@
-from langchain.llms.bedrock import Bedrock
+#from langchain.llms.bedrock import Bedrock
+#from langchain_community.llms import Bedrock
+from langchain_aws import BedrockLLM as Bedrock
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 import boto3
@@ -6,11 +8,11 @@ import boto3
 
 #bedrock client
 bedrock_client = boto3.client(
-    service_name = "bedrock-test",
+    service_name = "bedrock",
     region_name = "us-east-1"
 )
 
-model_id = "ai21.j2-ultra-v1""
+model_id = "ai21.j2-ultra-v1"
 
 llm = Bedrock(
     model_id = model_id,
