@@ -5,7 +5,7 @@ conda create -n bedrockproj python=3.8 -y
 ```
 
 ```bash
-conda activate bedrockproj 
+conda activate bedrockproj
 ```
 
 ```bash
